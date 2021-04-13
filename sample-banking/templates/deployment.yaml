@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "sample-banking-app.fullname" . }}
+  name: {{ template "sample-banking.fullname" . }}
   labels:
-    app: {{ template "sample-banking-app.name" . }}
-    chart: {{ template "sample-banking-app.chart" . }}
+    app: {{ template "sample-banking.name" . }}
+    chart: {{ template "sample-banking.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -12,12 +12,12 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "sample-banking-app.name" . }}
+      app: {{ template "sample-banking.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "sample-banking-app.name" . }}
+        app: {{ template "sample-banking.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
